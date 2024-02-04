@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package volo.abp.feature_management.v8;
+
+import "volo/abp/validation/string_values/v8/models.proto";
+
+message FeatureDto {
+  string name = 1;
+  string display_name = 2;
+  string value = 3;
+  FeatureProviderDto provider = 4;
+  string description = 5;
+  volo.abp.validation.string_values.v8.StringValueType value_type = 6;
+  string depth = 7;
+  string parent_name = 8;
+}
+message FeatureProviderDto {
+  string name = 1;
+  string key = 2;
+}
+message FeatureGroupDto {
+  string name = 1;
+  string display_name = 2;
+  repeated FeatureDto features = 3;
+}
+
+
+
+message UpdateFeatureDto {
+  string name = 1;
+  string value = 2;
+}
+
+

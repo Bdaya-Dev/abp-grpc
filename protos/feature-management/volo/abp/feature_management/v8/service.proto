@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package volo.abp.feature_management.v8;
+
+import "volo/abp/feature_management/v8/models.proto";
+service FeatureService {
+  rpc Get(FeatureServiceGetRequest) returns (FeatureServiceGetResponse);
+  rpc Update(FeatureServiceUpdateRequest) returns (FeatureServiceUpdateResponse);
+  rpc Delete(FeatureServiceDeleteRequest) returns (FeatureServiceDeleteResponse);
+}
+
+message FeatureServiceGetRequest {
+  string provider_name = 1;
+  string provider_key = 2;
+}
+message FeatureServiceGetResponse {
+  repeated FeatureGroupDto groups = 1;
+}
+
+message FeatureServiceUpdateRequest {
+  string provider_name = 1;
+  string provider_key = 2;
+  repeated UpdateFeatureDto features = 3;
+}
+message FeatureServiceUpdateResponse {}
+
+//
+message FeatureServiceDeleteRequest {
+  string provider_name = 1;
+  string provider_key = 2;
+}
+message FeatureServiceDeleteResponse {}

@@ -1,0 +1,8 @@
+version: v1
+name: buf.build/abp-framework-demo/core
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT
