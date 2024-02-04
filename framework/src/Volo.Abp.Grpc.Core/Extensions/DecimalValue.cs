@@ -14,19 +14,11 @@ public partial class DecimalValue
         return Units + Nanos / NanoFactor;
 
     }
-    public static implicit operator decimal(DecimalValue grpcDecimal)
-    {
-        return grpcDecimal.ToDecimal();
-    }
 
     public static DecimalValue FromDecimal(decimal value)
     {
         var units = decimal.ToInt64(value);
         var nanos = decimal.ToInt32((value - units) * NanoFactor);
         return new DecimalValue(units, nanos);
-    }
-    public static implicit operator DecimalValue(decimal value)
-    {
-        return FromDecimal(value);
     }
 }
